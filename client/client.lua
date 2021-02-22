@@ -12,13 +12,47 @@ end)
 -- local Alloweds = {'allowed1', 'allowed2', 'allowed3' 'allowed4'}
 
 
-RegisterCommand("test", function()
+RegisterCommand("warn", function()
   if Config.WarningMessage then
       Citizen.Wait(1)
       notify(Config.WarningMessageText)
-      TriggerEvent("seatbelt:sounds", "warn1", Config.Volume)
-      Citizen.Wait(5000)
-      TriggerEvent("seatbelt:sounds", "warn2_1", Config.Volume)
+  end  
+  if Config.Sounds then
+    Citizen.Wait(1)
+    TriggerEvent("seatbelt:sounds", "warn1", Config.Volume)
+  end    
+end)
+
+RegisterCommand("Warn2", function()
+  if Config.WarningMessage then
+      Citizen.Wait(1)
+      notify(Config.WarningMessageText)
+  end  
+  if Config.Sounds then
+    Citizen.Wait(1)
+    TriggerEvent("seatbelt:sounds", "warn2_1", Config.Volume)
+  end    
+end)
+
+RegisterCommand("Attack", function()
+  if Config.WarningMessage then
+      Citizen.Wait(1)
+      notify(Config.WarningMessageText)
+  end  
+  if Config.Sounds then
+    Citizen.Wait(1)
+    TriggerEvent("seatbelt:sounds", "attack1", Config.Volume)
+  end    
+end)
+
+RegisterCommand("Allowed", function()
+  if Config.WarningMessage then
+      Citizen.Wait(1)
+      notify(Config.WarningMessageText)
+  end  
+  if Config.Sounds then
+    Citizen.Wait(1)
+    TriggerEvent("seatbelt:sounds", "allowed1", Config.Volume)
   end    
 end)
 
