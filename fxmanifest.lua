@@ -10,8 +10,7 @@ ui_page 'html/ui.html'
 client_script {
   './client/client.lua',
   'config.lua',
-  './client/functions.lua',
-  
+  './client/functions.lua'
 }
 
 files {
