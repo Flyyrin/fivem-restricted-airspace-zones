@@ -6,23 +6,9 @@ AddEventHandler('seatbelt:sounds', function(soundFile, soundVolume)
   })
 end)
 
-RegisterCommand("warn", function()
-  sound("warn")
+RegisterCommand("Sound", function(source, args, rawCommand)
+  sound(args[1])
 end)
-
-RegisterCommand("warn2", function() 
-  sound("warn2")
-end)
-
-RegisterCommand("attack", function()
-  sound("attack")
-end)
-
-RegisterCommand("allowed", function()
-  sound("allowed")
-end)
-
---TEST
 
 RegisterCommand("example", function()
   checkLocation()
