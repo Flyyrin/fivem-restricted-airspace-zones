@@ -6,15 +6,20 @@ AddEventHandler('seatbelt:sounds', function(soundFile, soundVolume)
   })
 end)
 
---Trigger sound
-RegisterCommand("Sound", function(source, args, rawCommand)
-  sound(args[1])
+
+
+InWarn = false
+InWarn2 = false
+InAttack = false
+InMes = false
+
+Citizen.CreateThread(function()
+  while true do
+    checkLocationFZ(-2269.98, 3164.4, 32.39, 600.0) --FZ
+  end
 end)
 
-RegisterCommand("example", function()
-  checkLocation(-1392.51, -1483.06, 3.8, 50.0)
-  Warn()
-end)
+
 
 
 

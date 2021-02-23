@@ -5,36 +5,50 @@ function notify(msg)
 end
 
 
---Check warn 
-function checkLocation(x, y, z, radius)
+--Fort Zancudo
+function checkLocationFZ(x, y, z, radius)
     Citizen.Wait(0)
   local ped = GetPlayerPed(-1)
-    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+100 then
+    --Check in
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+100 and InMes == false then
         if Config.WarningMessage then
         notify(Config.WarningMessageText)
+        InMes = true
         end
     end    
-	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+50 then
-        notify("IN Area Warn")
+	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+50 and InWarn == false then
+        sound("warn")
+        InWarn = true
     end
-    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+25  then
-         notify("IN Area Warn2")
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+25 and InWarn2 == false  then
+        sound("warn2")
+         InWarn2 = true
      end
-     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius then
-         notify("IN Area Attack")
+     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius and InAttack == false then
+        sound("attack")
+         InAttack = true
      end
+
+     --Check out
+     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+100 then
+        InMes = false
+     end
+	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+50 then
+        InWarn = false
+    end
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+25 then
+         InWarn2 = false
+     end
+     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius then
+         InAttack = false
+     end
+
     Citizen.Wait(500)
-    checkLocation(x, y, z, radius)
 end    
+   
 
 
-function Warn(InZone)
-    if InZone then
-        notify("IN Area")
-    else
-        notify("Not IN Area")
-    end    
-end    
+
 
 
 function sound(type)
