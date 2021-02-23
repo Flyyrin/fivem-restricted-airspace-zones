@@ -6,6 +6,7 @@ AddEventHandler('seatbelt:sounds', function(soundFile, soundVolume)
   })
 end)
 
+--Trigger sound
 RegisterCommand("Sound", function(source, args, rawCommand)
   sound(args[1])
 end)
