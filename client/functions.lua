@@ -8,13 +8,26 @@ function checkLocation()
     Citizen.Wait(0)
   local ped = GetPlayerPed(-1)
 	if GetDistanceBetweenCoords(-1392.51, -1483.06, 3.8, GetEntityCoords(ped), true) < 50.0 then
-    notify("IN Area")
-  else   
-    notify("Not IN Area")
-	end
+        -- if in zone
+        local InZone = true
+        Warn(InZone)
+    else   
+        local InZone = false
+        Warn(InZone)
+    end
     Citizen.Wait(500)
     checkLocation()
 end    
+
+
+function Warn(InZone)
+    if InZone then
+        notify("IN Area")
+    else
+        notify("Not IN Area")
+    end    
+end    
+
 
 function sound(type)
     if type == "warn" then

@@ -13,6 +13,7 @@ end)
 
 RegisterCommand("example", function()
   checkLocation()
+  Warn()
 end)
 
 
