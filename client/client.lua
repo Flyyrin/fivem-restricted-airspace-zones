@@ -12,7 +12,7 @@ RegisterCommand("Sound", function(source, args, rawCommand)
 end)
 
 RegisterCommand("example", function()
-  checkLocation()
+  checkLocation(-1392.51, -1483.06, 3.8, 50.0)
   Warn()
 end)
 

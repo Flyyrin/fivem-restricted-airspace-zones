@@ -3,20 +3,28 @@ function notify(msg)
     AddTextComponentString(msg)
     DrawNotification(true,false)
 end
- 
-function checkLocation()
+
+
+--Check warn 
+function checkLocation(x, y, z, radius)
     Citizen.Wait(0)
   local ped = GetPlayerPed(-1)
-	if GetDistanceBetweenCoords(-1392.51, -1483.06, 3.8, GetEntityCoords(ped), true) < 50.0 then
-        -- if in zone
-        local InZone = true
-        Warn(InZone)
-    else   
-        local InZone = false
-        Warn(InZone)
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+100 then
+        if Config.WarningMessage then
+        notify(Config.WarningMessageText)
+        end
+    end    
+	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+50 then
+        notify("IN Area Warn")
     end
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+25  then
+         notify("IN Area Warn2")
+     end
+     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius then
+         notify("IN Area Attack")
+     end
     Citizen.Wait(500)
-    checkLocation()
+    checkLocation(x, y, z, radius)
 end    
 
 
