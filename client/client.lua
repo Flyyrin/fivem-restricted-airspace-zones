@@ -10,29 +10,16 @@ RegisterCommand("warn", function()
   sound("warn")
 end)
 
-RegisterCommand("Warn2", function() 
-if Config.Sounds then
-  Citizen.Wait(1)
-  local myTable = {'warn2_1', 'warn2_2', 'warn2_3', 'warn2_4', 'warn2_5'}
-  TriggerEvent("seatbelt:sounds", myTable[ math.random( 1, #myTable) ], Config.Volume)
-end    
-
+RegisterCommand("warn2", function() 
+  sound("warn2")
 end)
 
-RegisterCommand("Attack", function()
-  if Config.Sounds then
-    Citizen.Wait(1)
-    local myTable = {'attack1', 'attack2', 'attack3', 'attack4', 'attack5', 'attack5', 'attack6'}
-    TriggerEvent("seatbelt:sounds", myTable[ math.random( 1, #myTable) ], Config.Volume)
-  end    
+RegisterCommand("attack", function()
+  sound("attack")
 end)
 
-RegisterCommand("Allowed", function()
-  if Config.Sounds then
-    Citizen.Wait(1)
-    local myTable = {'allowed2', 'allowed3', 'allowed4'}
-    TriggerEvent("seatbelt:sounds", myTable[ math.random( 1, #myTable) ], Config.Volume)
-  end    
+RegisterCommand("allowed", function()
+  sound("allowed")
 end)
 
 --TEST
