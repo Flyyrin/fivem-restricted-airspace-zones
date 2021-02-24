@@ -69,7 +69,8 @@ function checkCar(car)
 		carName = GetDisplayNameFromVehicleModel(carModel)
 
 		if isCarBlacklisted(carModel) then
-      checkLocationFZ(-2269.98, 3164.4, 32.39, 600.0) --FZ
+      checkLocationFZ(-2269.98, 3164.4, 32.39, 800) --Fort Zancudo
+      --checkLocationFZ(-2269.98, 3164.4, 32.39, 600.0) --Perico Island
 		end
 	end
 end
