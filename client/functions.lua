@@ -27,6 +27,11 @@ function checkLocationFZ(x, y, z, radius)
      if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius and InAttack == false then
         sound("attack")
          InAttack = true
+         Citizen.Wait(000)
+         vehicle = GetVehiclePedIsUsing(PlayerPedId())
+         doExplosions()
+         NetworkExplodeVehicle(vehicle, true, false, 0)
+       
      end
 
      --Check out
@@ -46,7 +51,6 @@ function checkLocationFZ(x, y, z, radius)
     Citizen.Wait(500)
 end    
    
-
 
 
 
@@ -86,3 +90,29 @@ function sound(type)
 end  
 
 
+
+
+
+
+function doExplosions()
+    Citizen.CreateThread(function()
+        for i = 1, 10 do
+            doExplosion()
+            Citizen.Wait(100)
+        end
+    end)
+  end
+  
+  function doExplosion()
+    local coords = GetEntityCoords(vehicle)
+    AddExplosion(coords.x,
+        coords.y,
+        coords.z,
+        'EXPLOSION_CAR', -- int explosionType
+        1.0,             -- float damageScale
+        true,            -- BOOL isAudible
+        false,           -- BOOL isInvisible
+        1.0              -- float cameraShake
+    )
+  end
+  

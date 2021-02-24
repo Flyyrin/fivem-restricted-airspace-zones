@@ -12,4 +12,10 @@ Config.WarningMessageText = 'You are approaching a ~r~restricted airspace' -- Me
 Config.Radius = 50.0  -- Radius of area
 
 
+--Vehicles not on the list will be White Listed!
+carblacklist = {
+	"RHINO",
+    "LAZER"
+}
+
  
