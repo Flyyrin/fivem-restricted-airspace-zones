@@ -29,3 +29,5 @@ end)
 --   notify(Config.WarningMessageText)
 -- end  
 
+
+-- GetVehiclePedIsIn(GetPlayerPed, lastVehicle false) -- Player veh
