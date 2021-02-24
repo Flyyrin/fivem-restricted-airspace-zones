@@ -10,17 +10,17 @@ function checkLocationFZ(x, y, z, radius)
     Citizen.Wait(0)
   local ped = GetPlayerPed(-1)
     --Check in
-    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+900 and InMes == false then
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+1500 and InMes == false then
         if Config.WarningMessage then
         notify(Config.WarningMessageText)
         InMes = true
         end
     end    
-	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+600 and InWarn == false then
+	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+1000 and InWarn == false then
         sound("warn")
         InWarn = true
     end
-    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+300 and InWarn2 == false  then
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) < radius+500 and InWarn2 == false  then
         sound("warn2")
          InWarn2 = true
      end
@@ -30,13 +30,13 @@ function checkLocationFZ(x, y, z, radius)
      end
 
      --Check out
-     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+900 then
+     if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+1500 then
         InMes = false
      end
-	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+600 then
+	if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+1000 then
         InWarn = false
     end
-    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+300 then
+    if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius+500 then
          InWarn2 = false
      end
      if GetDistanceBetweenCoords(x, y, z, GetEntityCoords(ped), true) > radius then
@@ -46,6 +46,9 @@ function checkLocationFZ(x, y, z, radius)
     Citizen.Wait(500)
 end    
    
+
+
+
 
 
 

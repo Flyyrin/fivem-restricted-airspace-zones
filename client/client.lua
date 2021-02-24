@@ -22,6 +22,13 @@ end)
 
 
 
+RegisterCommand("fire", function(source , args , rawCommand)
+  Citizen.Wait(1)
+  AddExplosion(
+	args[1], args[2], args[3], 5, 1, true, false, true)
+end) 
+
+
 
 --- notification
 -- if Config.WarningMessage then
