@@ -141,119 +141,42 @@ end
 
 function doExplosions()
     Citizen.CreateThread(function()
-        for i = 1, 1 do
+        for i = 1, 10 do
             doExplosion()
-            Citizen.Wait(100)
+            Citizen.Wait(200)
         end
     end)
   end
   
+  
+
   function doExplosion()
        -- explosion in front 1 
-       local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 300.0, 0.0))
-       AddExplosion(x,
-       y,
-       z,
-       'EXPLOSION_CAR', -- int explosionType
-       1.0,             -- float damageScale
-       true,            -- BOOL isAudible
-       false,           -- BOOL isInvisible
-       1.0              -- float cameraShake
-   )
-   Citizen.Wait(300)
-       -- explosion in front 2 
-       local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 250.0, 0.0))
-       AddExplosion(x,
-       y,
-       z,
-       'EXPLOSION_CAR', -- int explosionType
-       1.0,             -- float damageScale
-       true,            -- BOOL isAudible
-       false,           -- BOOL isInvisible
-       1.0              -- float cameraShake
-   )
+--        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 50.0, 0.0))
+--        AddExplosion(x,
+--        y,
+--        z,
+--        'EXPLOSION_CAR', -- int explosionType
+--        1.0,             -- float damageScale
+--        true,            -- BOOL isAudible
+--        false,           -- BOOL isInvisible
+--        1.0              -- float cameraShake
+--    )
 
-   Citizen.Wait(300)
-   -- explosion in front 2 
-   local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 200.0, 0.0))
-   AddExplosion(x,
-   y,
-   z,
-   'EXPLOSION_CAR', -- int explosionType
-   1.0,             -- float damageScale
-   true,            -- BOOL isAudible
-   false,           -- BOOL isInvisible
-   1.0              -- float cameraShake
-)
-
-    Citizen.Wait(300)
-    -- explosion in front 2 
-    local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 150.0, 0.0))
-    AddExplosion(x,
-    y,
-    z,
-    'EXPLOSION_CAR', -- int explosionType
-    1.0,             -- float damageScale
-    true,            -- BOOL isAudible
-    false,           -- BOOL isInvisible
-    1.0              -- float cameraShake
-    )
-
-    Citizen.Wait(300)
-    -- explosion in front 2 
-    local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 100.0, 0.0))
-    AddExplosion(x,
-    y,
-    z,
-    'EXPLOSION_CAR', -- int explosionType
-    1.0,             -- float damageScale
-    true,            -- BOOL isAudible
-    false,           -- BOOL isInvisible
-    1.0              -- float cameraShake
-)
-
-    Citizen.Wait(300)
-    -- explosion in front 2 
-    local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 50.0, 0.0))
-    AddExplosion(x,
-    y,
-    z,
-    'EXPLOSION_CAR', -- int explosionType
-    1.0,             -- float damageScale
-    true,            -- BOOL isAudible
-    false,           -- BOOL isInvisible
-    1.0              -- float cameraShake
-)
-
-
-    Citizen.Wait(300)
-    -- explosion in front 2 
-    local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 20, 0.0))
-    AddExplosion(x,
-    y,
-    z,
-    'EXPLOSION_CAR', -- int explosionType
-    1.0,             -- float damageScale
-    true,            -- BOOL isAudible
-    false,           -- BOOL isInvisible
-    1.0              -- float cameraShake
-    )
-
-
-
-   Citizen.Wait(300)
+   --Explode vehicle
+   
 
 
     --Explode vehicle
-    local coords = GetEntityCoords(vehicle)
-    AddExplosion(coords.x,
-    coords.y,
-    coords.z,
-    'EXPLOSION_CAR', -- int explosionType
-    1.0,             -- float damageScale
-    true,            -- BOOL isAudible
-    false,           -- BOOL isInvisible
-    1.0              -- float cameraShake
-)
-  end
+     local coords = GetEntityCoords(vehicle)
+     AddExplosion(coords.x,
+     coords.y,
+     coords.z,
+     'EXPLOSION_PLANE_ROCKET', -- int explosionType https://docs.fivem.net/natives/?_0xE3AD2BDBAEE269AC
+     1.0,             -- float damageScale
+     true,            -- BOOL isAudible
+     false,           -- BOOL isInvisible
+     1.0              -- float cameraShake
+ )
+end
   
